@@ -39,7 +39,7 @@ for version in "${versions[@]}"; do
 
 		baseDockerfile=Dockerfile-debian.template
 
-    for db in psql mssql oci; do
+    for db in pgsql mssql oci; do
       [ -d "$version/$suite/$db" ] || continue
 
       for variant in base ci; do
