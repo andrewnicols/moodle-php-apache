@@ -1,0 +1,24 @@
+# Install the PHP OCI8 Extension.
+ENV LD_LIBRARY_PATH /usr/local/instantclient
+
+ENV ORACLE_BASE_PATH https://raw.githubusercontent.com/AminMkh/docker-php7-oci8-apache/b7c740638776552f00178a5d12905cefb50c7848/oracle/
+ENV ORACLE_VERSION 12.1.0.2.0
+
+RUN \
+    curl $ORACLE_BASE_PATH/instantclient-basic-linux.x64-$ORACLE_VERSION.zip -o /tmp/instantclient-basic-linux.x64-$ORACLE_VERSION.zip; \
+    curl $ORACLE_BASE_PATH/instantclient-sdk-linux.x64-$ORACLE_VERSION.zip -o /tmp/instantclient-sdk-linux.x64-$ORACLE_VERSION.zip; \
+    curl $ORACLE_BASE_PATH/instantclient-sqlplus-linux.x64-$ORACLE_VERSION.zip -o /tmp/instantclient-sqlplus-linux.x64-$ORACLE_VERSION.zip; \
+    unzip /tmp/instantclient-basic-linux.x64-$ORACLE_VERSION.zip -d /usr/local/; \
+    unzip /tmp/instantclient-sdk-linux.x64-$ORACLE_VERSION.zip -d /usr/local/; \
+    unzip /tmp/instantclient-sqlplus-linux.x64-$ORACLE_VERSION.zip -d /usr/local/; \
+    rm /tmp/instantclient-*x64-$ORACLE_VERSION.zip; \
+\
+    ln -s /usr/local/instantclient_12_1 /usr/local/instantclient; \
+    ln -s /usr/local/instantclient/libclntsh.so.12.1 /usr/local/instantclient/libclntsh.so; \
+    ln -s /usr/local/instantclient/sqlplus /usr/bin/sqlplus; \
+\
+    echo 'instantclient,/usr/local/instantclient' | pecl install oci8 && docker-php-ext-enable oci8; \
+    echo 'oci8.statement_cache_size = 0' >> /usr/local/etc/php/conf.d/docker-php-ext-oci8.ini; \
+\
+    # Keep our image size down.
+    pecl clear-cache
