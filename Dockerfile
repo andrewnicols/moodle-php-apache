@@ -43,7 +43,10 @@ RUN mkdir /var/www/moodledata && chown www-data /var/www/moodledata && \
     mkdir /var/www/behatdata && chown www-data /var/www/behatdata && \
     mkdir /var/www/behatfaildumps && chown www-data /var/www/behatfaildumps
 
-ADD root/usr /usr
-
 # Fix the original permissions of /tmp, the PHP default upload tmp dir.
 RUN chmod 777 /tmp && chmod +t /tmp
+
+ADD root/usr /usr
+
+CMD ["apache2-foreground"]
+ENTRYPOINT ["moodle-docker-php-entrypoint"]
