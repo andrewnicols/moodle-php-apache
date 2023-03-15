@@ -8,7 +8,7 @@ if [[ ${TARGETPLATFORM} != "linux/amd64" ]]; then
 fi
 
 # Packages for build.
-BUILD_PACKAGES="gnupg unixodbc-dev"
+BUILD_PACKAGES="unixodbc-dev"
 
 # Packages for sqlsrv runtime.
 PACKAGES_SQLSRV="unixodbc"

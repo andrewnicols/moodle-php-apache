@@ -5,7 +5,7 @@ set -e
 echo "Installing apt dependencies"
 
 # Build packages will be added during the build, but will be removed at the end.
-BUILD_PACKAGES="gettext gnupg libcurl4-openssl-dev libfreetype6-dev libicu-dev libjpeg62-turbo-dev \
+BUILD_PACKAGES="gettext libcurl4-openssl-dev libfreetype6-dev libicu-dev libjpeg62-turbo-dev \
   libldap2-dev libmariadb-dev libmemcached-dev libpng-dev libpq-dev libxml2-dev libxslt-dev \
   uuid-dev"
 

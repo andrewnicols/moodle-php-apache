@@ -7,7 +7,7 @@ RUN echo "Building for ${TARGETPLATFORM}"
 
 # Install some packages that are useful within the images.
 RUN apt-get update && apt-get install -y \
-    git \
+    git gnupg \
 && rm -rf /var/lib/apt/lists/*
 
 # Install pickle as an easier alternative to PECL, that is not
