@@ -4,14 +4,16 @@ A Moodle PHP environment configured for Moodle development based on [Official PH
 
 ### Versions
 
-| PHP Version  | Variant | Tags             | Status | Notes |
-|--------------|---------|------------------|--------|-------|
-| PHP 8.6      | Bookworm| 8.6, 8.6-bookworm| [![Test and publish 8.6](https://github.com/moodlehq/moodle-php-apache/actions/workflows/test_buildx_and_publish.yml/badge.svg?branch=8.6-bookworm)](https://github.com/moodlehq/moodle-php-apache/actions/workflows/test_buildx_and_publish.yml)||
-| PHP 8.5      | Bookworm| 8.5, 8.5-bookworm| [![Test and publish 8.5](https://github.com/moodlehq/moodle-php-apache/actions/workflows/test_buildx_and_publish.yml/badge.svg?branch=8.5-bookworm)](https://github.com/moodlehq/moodle-php-apache/actions/workflows/test_buildx_and_publish.yml)||
-| PHP 8.4      | Bookworm | 8.4, 8.4-bookworm| [![Test and publish 8.4](https://github.com/moodlehq/moodle-php-apache/actions/workflows/test_buildx_and_publish.yml/badge.svg?branch=8.4-bookworm)](https://github.com/moodlehq/moodle-php-apache/actions/workflows/test_buildx_and_publish.yml)|
-| PHP 8.3      | Bookworm | 8.3, 8.3-bookworm| [![Test and publish 8.3](https://github.com/moodlehq/moodle-php-apache/actions/workflows/test_buildx_and_publish.yml/badge.svg?branch=8.3-bookworm)](https://github.com/moodlehq/moodle-php-apache/actions/workflows/test_buildx_and_publish.yml)|
-| PHP 8.2      | Bookworm | 8.2, 8.2-bookworm| [![Test and publish 8.2](https://github.com/moodlehq/moodle-php-apache/actions/workflows/test_buildx_and_publish.yml/badge.svg?branch=8.2-bookworm)](https://github.com/moodlehq/moodle-php-apache/actions/workflows/test_buildx_and_publish.yml)|
-| PHP 8.1      | Bookworm | 8.1, 8.1-bookworm | [![Test and publish 8.1](https://github.com/moodlehq/moodle-php-apache/actions/workflows/test_buildx_and_publish.yml/badge.svg?branch=8.1-bookworm)](https://github.com/moodlehq/moodle-php-apache/actions/workflows/test_buildx_and_publish.yml)|
+[![Test and publish](https://github.com/moodlehq/moodle-php-apache/actions/workflows/test_buildx_and_publish.yml/badge.svg?branch=main)](https://github.com/moodlehq/moodle-php-apache/actions/workflows/test_buildx_and_publish.yml)
+
+| PHP Version | Variant | Tags |
+|-------------|---------|------|
+| PHP 8.6 | Bookworm | main, 8.6, 8.6-bookworm |
+| PHP 8.5 | Bookworm | 8.5, 8.5-bookworm |
+| PHP 8.4 | Bookworm | 8.4, 8.4-bookworm |
+| PHP 8.3 | Bookworm | 8.3, 8.3-bookworm |
+| PHP 8.2 | Bookworm | 8.2, 8.2-bookworm |
+| PHP 8.1 | Bookworm | 8.1, 8.1-bookworm |
 
 ## Example usage
 
