@@ -27,12 +27,20 @@ $ docker run --name web0 -p 8080:80  -v $PWD:/var/www/html moodlehq/moodle-php-a
 * Preconfigured with all php extensions required for Moodle development and all database drivers
 * Serves content from `/var/www/html` or `/var/www/html/public` (for Moodle 5.1 onwards) by default.
 * Document root can be overridden
-* Both `linux/amd64` and `linux/arm64` images are being built. Note that `linux/arm64` doesn't support the sqlsrv and oci extensions yet. Other than that, both architectures work exactly the same.
+* Both `linux/amd64` and `linux/arm64` images are built. The oci extensions are not available on `linux/arm64`.
 * Verified by [automated tests](https://github.com/moodlehq/moodle-php-apache/actions/workflows/test_buildx_and_publish.yml).
 * Autobuilt from GHA, on push.
 * Support for entrypoint scripts and PHP Configuration
 * Many common extensions available
 * Note that PHP 8.4 images do not include oci extensions as these are no longer supported by Moodle 5.0 onwards.
+
+### ARM64 SQL Server client
+
+The ARM64 SQLSRV extension uses Microsoft ODBC Driver 18, which enables
+encryption by default. Moodle's compatibility with this driver remains
+unresolved ([MDL-77678](https://moodle.atlassian.net/browse/MDL-77678)):
+database connections, including secondary connections, require testing against
+a separate SQL Server host. AMD64 continues to use ODBC Driver 17.
 
 ## Configuration
 

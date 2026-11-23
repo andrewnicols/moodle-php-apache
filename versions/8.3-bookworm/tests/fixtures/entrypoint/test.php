@@ -9,7 +9,6 @@ $requiredextensions = [
     'ldap',
     'memcached',
     'mysqli',
-    'oci8',
     'pgsql',
     'redis',
     'soap',
@@ -20,6 +19,10 @@ $requiredextensions = [
     'xsl',
     'zip',
 ];
+
+if (php_uname('m') === 'x86_64') {
+    $requiredextensions[] = 'oci8';
+}
 
 $buffer = '';;
 $missing = [];

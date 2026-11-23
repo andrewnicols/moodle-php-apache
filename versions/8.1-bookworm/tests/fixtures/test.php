@@ -10,7 +10,6 @@ $requiredextensions = [
     'memcached',
     'mongodb',
     'mysqli',
-    'oci8',
     'pgsql',
     'redis',
     'soap',
@@ -22,6 +21,10 @@ $requiredextensions = [
     'xmlrpc',
     'zip',
 ];
+
+if (php_uname('m') === 'x86_64') {
+    $requiredextensions[] = 'oci8';
+}
 
 $buffer = '';;
 $missing = [];

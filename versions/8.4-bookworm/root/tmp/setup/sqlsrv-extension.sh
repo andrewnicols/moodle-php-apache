@@ -2,11 +2,6 @@
 
 set -e
 
-if [[ ${TARGETPLATFORM} != "linux/amd64" ]]; then
-  echo "sqlsrv extension not available for ${TARGETPLATFORM} architecture, skipping"
-  exit 0
-fi
-
 # Packages for build.
 BUILD_PACKAGES="gnupg unixodbc-dev"
 
@@ -29,11 +24,14 @@ rm packages-microsoft-prod.deb
 apt-get update
 
 echo "Install msodbcsql"
-# We have to stay with 17 because 18 encrypts the connections by default and that breaks ADOdb/2nd connection
-# tests. Only when https://tracker.moodle.org/browse/MDL-77678 is fixed, we can move to odbc18.
-ACCEPT_EULA=Y apt-get install -y msodbcsql17
-
-ln -fsv /opt/mssql-tools/bin/* /usr/bin
+# Driver 17 is unavailable on ARM64. Driver 18 changes the default encryption behavior;
+# see https://moodle.atlassian.net/browse/MDL-77678 for Moodle compatibility.
+if [[ ${TARGETPLATFORM} == "linux/arm64" ]]; then
+  ACCEPT_EULA=Y apt-get install -y msodbcsql18
+else
+  ACCEPT_EULA=Y apt-get install -y msodbcsql17
+  ln -fsv /opt/mssql-tools/bin/* /usr/bin
+fi
 
 # Need 5.12 (or later) for PHP 8.3 support
 pecl install sqlsrv-5.12.0
