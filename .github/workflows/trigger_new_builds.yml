@@ -14,7 +14,7 @@ jobs:
     outputs:
       versions: ${{ steps.check.outputs.versions }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Check published images for new PHP and timezonedb releases
         id: check
         run: echo "versions=$(bash .github/scripts/check-rebuilds.sh)" >> "$GITHUB_OUTPUT"
